@@ -10,8 +10,15 @@ RSpec.describe Game do
     expect(@game.enemy).to be_a Enemy
   end
 
-  describe "#start" do
-    it "will begin to ask user for input" do
+  describe "#begin_round" do
+    it "will have player attack enemy and vice versa" do
+      player_hp = @game.player.hp
+      enemy_hp = @game.enemy.hp
+
+      @game.begin_round
+
+      expect(@game.player.hp).to be < player_hp
+      expect(@game.enemy.hp).to be < enemy_hp
     end
   end
 end

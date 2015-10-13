@@ -2,11 +2,14 @@ class Game
   attr_reader :player, :enemy
 
   def initialize
-    @player = true
-    @enemy = true
+    @player = Player.new
+    @enemy = Enemy.new
   end
 
-  def choose_class
+  def begin_round
+    @player.take_damage(rand(100))
+    @enemy.take_damage(rand(100))
   end
+
 end
 
