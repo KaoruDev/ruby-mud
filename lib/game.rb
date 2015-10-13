@@ -1,10 +1,12 @@
 class Game
+  attr_reader :player, :enemy
+
   def initialize
-    @player = choose_class
+    @player = true
+    @enemy = true
   end
 
   def choose_class
-    Utils::ClassPicker.pick_class
   end
 end
 
