@@ -6,8 +6,8 @@ RSpec.describe Game do
   end
 
   it "will setup player and enemy" do
-    expect(@game.player).to be_truthy
-    expect(@game.enemy).to be_truthy
+    expect(@game.player).to be_a Player
+    expect(@game.enemy).to be_a Enemy
   end
 
   describe "#start" do
