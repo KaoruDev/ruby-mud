@@ -1,5 +1,5 @@
 module Utils
-  class AskQuestion
+  class AskQuestions
     def self.yes_no(question, actions={})
       print "#{question} (y/n):"
       response = Prompter.run
