@@ -3,7 +3,7 @@ require_relative "./spec_helper"
 RSpec.describe Prompter do
   describe ".run" do
     it "will ask user for input" do
-      allow(Prompter).to receive(:run) { "1" }
+      stub_prompter(:run, "1")
       expect(Prompter.run).to eq("1")
     end
 
