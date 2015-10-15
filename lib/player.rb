@@ -5,17 +5,15 @@ class Player
     @hp = 100
     @mp = 100
 
-    @class_picker = configs[:class_picker]
+    pick_skills
   end
 
   def take_damage(amount)
     @hp -= amount
   end
 
-  private
-
-  def class_picker
-    @class_picker ||= ClassPicker.new
+  def pick_skills
+    extend Utils::PickSkills.run
   end
 end
 

@@ -1,12 +1,7 @@
 require_relative "./spec_helper"
 
 RSpec.describe Player do
-  let(:class_picker) { double("ClassPicker") }
-  let(:player) do
-    Player.new({
-      picker: class_picker
-    })
-  end
+  let(:player) { Player.new }
 
   describe "initialize" do
     describe "will create an attribute of" do
@@ -15,6 +10,7 @@ RSpec.describe Player do
     end
 
     it "will ask the user to choose a class" do
+      stub_prompter(:run, "1")
     end
   end
 
