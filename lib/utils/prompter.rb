@@ -2,9 +2,9 @@ require "readline"
 
 module Utils
   class Prompter
-    def self.run(player=nil)
+    def self.run(player: nil, custom_text: nil)
       return player_prompt(player) if player
-      output(":> ")
+      output("#{custom_text}:> ")
     end
 
     def self.player_prompt(player)

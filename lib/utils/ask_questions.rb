@@ -18,8 +18,6 @@ module Utils
     end
 
     class MultipleChoice
-      InvalidAnswer = Class.new(ArgumentError)
-
       def initialize(question, options)
         @question = question
         @options = options
@@ -29,10 +27,11 @@ module Utils
         puts @question
         display_options
         response = Prompter.run(player)
-        find_answer(response)
-      rescue InvalidAnswer
-        Prompter.didnt_get_that
-        self.class.new(@question, @options).run(player)
+        answer = find_answer(response)
+        unless answer
+          Prompter.didnt_get_that
+          self.class.new(@question, @options).run(player)
+        end
       end
 
       def display_options
@@ -46,8 +45,6 @@ module Utils
         idx = response.to_i - 1
         if idx >= 0 && key = @options.keys[idx]
           @options[key].call
-        else
-          raise InvalidAnswer.new
         end
       end
     end
