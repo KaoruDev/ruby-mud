@@ -20,8 +20,9 @@ module Utils
         it "will ask again" do
           yes = false
 
-          expect(Prompter).to receive(:output).with("#{question} (y/n) :> ").and_return("asdfsdf").ordered
-          expect(Prompter).to receive(:output).with(match("Sorry I didn't get that")).and_return("y").ordered
+          expect(Prompter).to receive(:output).with("#{question} (y/n) :> ").and_return("asdfsdf")
+          expect(Prompter).to receive(:didnt_get_that)
+          expect(Prompter).to receive(:output).with("#{question} (y/n) :> ").and_return("y")
 
           AskQuestions.yes_no(question, {
             yes: -> { yes = true }
