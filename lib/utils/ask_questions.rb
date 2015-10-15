@@ -1,8 +1,7 @@
 module Utils
   class AskQuestions
     def self.yes_no(question, actions={})
-      print "#{question} (y/n):"
-      response = Prompter.run
+      response = Prompter.run(custom_text: "#{question} (y/n) ")
       if response.match("y")
         return actions[:yes].call if actions[:yes]
       elsif response.match("n")
@@ -15,38 +14,6 @@ module Utils
 
     def self.multiple_choice(question, options={}, player=nil)
       MultipleChoice.new(question, options).run(player)
-    end
-
-    class MultipleChoice
-      def initialize(question, options)
-        @question = question
-        @options = options
-      end
-
-      def run(player)
-        puts @question
-        display_options
-        response = Prompter.run(player)
-        answer = find_answer(response)
-        unless answer
-          Prompter.didnt_get_that
-          self.class.new(@question, @options).run(player)
-        end
-      end
-
-      def display_options
-        @options.keys.each_with_index do |option, idx|
-          puts "#{idx + 1}) #{option}"
-        end
-        puts ""
-      end
-
-      def find_answer(response)
-        idx = response.to_i - 1
-        if idx >= 0 && key = @options.keys[idx]
-          @options[key].call
-        end
-      end
     end
   end
 end
