@@ -1,15 +1,21 @@
 module Utils
   class AskQuestions
     class MultipleChoice
-      def initialize(question, options)
-        @question = question
-        @options = options
+      def self.run(question, player, options={})
+        multiple_choice = self.new(question, player, options)
+        multiple_choice.run
       end
 
-      def run(player)
-        puts @question
+      def initialize(question, player, options={})
+        @question = question
+        @options = options
+        @player = player
+      end
+
+      def run
+        display(@question)
         display_options
-        response = Prompter.run(player)
+        response = Prompter.run(player: @player)
         answer = find_answer(response)
         unless answer
           Prompter.didnt_get_that
@@ -17,11 +23,13 @@ module Utils
         end
       end
 
+      private
+
       def display_options
-        @options.keys.each_with_index do |option, idx|
-          puts "#{idx + 1}) #{option}"
+        @options.keys.each_with_index do |option_desc, idx|
+          display("#{idx + 1}) #{option_desc}")
         end
-        puts ""
+        display
       end
 
       def find_answer(response)
@@ -29,6 +37,10 @@ module Utils
         if idx >= 0 && key = @options.keys[idx]
           @options[key].call
         end
+      end
+
+      def display(text="")
+        puts text
       end
     end
   end
