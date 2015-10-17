@@ -12,8 +12,8 @@ module Utils
       return yes_no(question, actions)
     end
 
-    def self.multiple_choice(question, options={}, player=nil)
-      MultipleChoice.new(question, options).run(player)
+    def self.multiple_choice(question, player=nil, options={})
+      MultipleChoice.run(question, player, options)
     end
   end
 end

@@ -4,8 +4,6 @@ class Player
   def initialize(configs={})
     @hp = 100
     @mp = 100
-
-    pick_skills
   end
 
   def take_damage(amount)

@@ -17,10 +17,13 @@ module Utils
         display_options
         response = Prompter.run(player: @player)
         answer = find_answer(response)
+
         unless answer
           Prompter.didnt_get_that
-          self.class.new(@question, @options).run(player)
+          return self.class.run(@question, @player, @options)
         end
+
+        answer
       end
 
       private
@@ -35,7 +38,13 @@ module Utils
       def find_answer(response)
         idx = response.to_i - 1
         if idx >= 0 && key = @options.keys[idx]
-          @options[key].call
+          value = @options[key]
+
+          if value.is_a? Proc
+            value.call
+          end
+
+          value
         end
       end
 
