@@ -7,5 +7,15 @@ module Skills
     def self.color
       Utils::Colors
     end
+
+    def attribute_advantages
+      {
+        :hp => 300,
+        :mp => 100,
+        :agility => 6,
+        :dodge => 3
+      }
+    end
+
   end
 end
