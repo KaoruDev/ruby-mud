@@ -6,9 +6,19 @@ class Game
     @enemy = Enemy.new
   end
 
+  def pick_characters
+    characters.each(&:pick_characters)
+  end
+
   def begin_round
     @player.take_damage(rand(100))
     @enemy.take_damage(rand(100))
+  end
+
+  private
+
+  def characters
+    [@player, @enemy]
   end
 
 end

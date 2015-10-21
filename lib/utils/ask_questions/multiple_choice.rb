@@ -42,9 +42,9 @@ module Utils
 
           if value.is_a? Proc
             value.call
+          else
+            value
           end
-
-          value
         end
       end
 
