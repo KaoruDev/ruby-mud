@@ -1,15 +1,12 @@
 class Game
   attr_reader :player, :enemy
 
-  def initialize
-    @player = Player.new
-    @enemy = Enemy.new
-  end
-
   def pick_characters
-    actors.each do |actor|
-      actor.pick_character.generate_attributes
-    end
+    @player = PickCharacter.for_player
+    @player.generate_attributes
+
+    @enemy = PickCharacter.for_enemy
+    @enemy.generate_attributes
   end
 
   def begin_round
