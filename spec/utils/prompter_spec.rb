@@ -14,7 +14,7 @@ module Utils
       end
 
       context "when a player is passed" do
-        let(:player) { Fabricate(:player) }
+        let(:player) { Player.new }
 
         it "will display a player's stats" do
           player_prompt_match = match(Regexp.new("#{player.hp}.+HP.+#{player.mp}.+MP"))

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem "fabrication"
   gem 'pry'
 end
 
