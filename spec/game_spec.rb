@@ -26,6 +26,7 @@ RSpec.describe Game do
     it "will ask the player to choose a character" do
       stub_prompter(:output, 1)
       @game.pick_characters
+      expect(@gamer.player.character).to not_be_nil
     end
   end
 end

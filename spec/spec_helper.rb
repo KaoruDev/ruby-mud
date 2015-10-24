@@ -1,5 +1,4 @@
 $:.unshift File.expand_path(Dir.pwd, '..')
-require "fabrication"
 require "spec/helpers/stub_prompter"
 require "pry"
 

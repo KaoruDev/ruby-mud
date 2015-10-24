@@ -7,7 +7,7 @@ class Game
   end
 
   def pick_characters
-    characters.each(&:pick_characters)
+    characters.each(&:pick_character)
   end
 
   def begin_round
