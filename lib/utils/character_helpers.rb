@@ -19,6 +19,10 @@ module Utils
       self
     end
 
+    def take_damage(amount)
+      CalculateDamage.new(self, amount)
+    end
+
     def colors
       Utils::Colors
     end
