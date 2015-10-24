@@ -16,6 +16,7 @@ module Utils
     def generate_attributes
       @hp = attribute_advantages[:hp] * rand(100..200)
       @mp = attribute_advantages[:mp] * rand(50..100)
+      self
     end
 
     def colors
