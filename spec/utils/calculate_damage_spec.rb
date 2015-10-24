@@ -1,13 +1,13 @@
 require_relative "../spec_helper"
 
-RSpec.describes CalculateDamage do
-  describe "initialize" do
-    it "takes a character and the amount of damage" do
-      elf = PlayerCharacters::Elf.new
-      calculation = CalculateDamage.new(elf, 100)
+module Utils
+  RSpec.describe CalculateDamage do
+    let(:calculator) { CalculateDamage.new }
 
-      expect(calculation.character).to eq elf
-      expect(calculation.amount).to eq 100
+    describe "#run" do
+      it "returns a fixnum" do
+        expect(calculator.run(100)).to be_instance_of Fixnum
+      end
     end
   end
 end

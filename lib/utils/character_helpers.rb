@@ -19,8 +19,17 @@ module Utils
       self
     end
 
+    def attack(character)
+      character.take_damage(rand(1..100))
+    end
+
     def take_damage(amount)
-      CalculateDamage.new(self, amount)
+      calculated_damage = damage_calculator.run(amount)
+      @hp =- calculated_damage
+    end
+
+    def damage_calculator
+      @damage_calculator ||= CalculateDamage.new
     end
 
     def colors

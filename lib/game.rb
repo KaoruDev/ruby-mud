@@ -10,8 +10,8 @@ class Game
   end
 
   def begin_round
-    @player.take_damage(rand(100))
-    @enemy.take_damage(rand(100))
+    @player.attack(@enemy)
+    @enemy.attack(@player)
   end
 
   private
