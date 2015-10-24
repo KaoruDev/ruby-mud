@@ -14,13 +14,11 @@ module Utils
       end
 
       context "when a player is passed" do
-        let(:elf) {
+        let(:player) {
           elf = PlayerCharacters::Elf.new
           elf.generate_attributes
           elf
         }
-
-        let(:player) { Player.new({ character: elf }) }
 
         it "will display a player's stats" do
           player_prompt_match = match(Regexp.new("#{player.hp}.+HP.+#{player.mp}.+MP"))
