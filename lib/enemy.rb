@@ -1,11 +1,13 @@
-class Enemy
-  attr_reader :hp
+require "lib/utils/character_helpers"
 
-  def initialize
-    @hp = 100
-  end
+class Enemy
+  include Utils::CharacterHelpers
 
   def take_damage(amount)
     @hp -= amount
+  end
+
+  def pick_character
+    @character = PickCharacter.for_enemy
   end
 end

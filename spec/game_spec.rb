@@ -10,23 +10,13 @@ RSpec.describe Game do
     expect(@game.enemy).to be_a Enemy
   end
 
-  describe "#begin_round" do
-    it "will have player attack enemy and vice versa" do
-      player_hp = @game.player.hp
-      enemy_hp = @game.enemy.hp
-
-      @game.begin_round
-
-      expect(@game.player.hp).to be < player_hp
-      expect(@game.enemy.hp).to be < enemy_hp
-    end
-  end
-
   describe "#pick_characters" do
     it "will ask the player to choose a character" do
+      silence_questions
       stub_prompter(:output, 1)
+
       @game.pick_characters
-      expect(@gamer.player.character).to not_be_nil
+      expect(@game.player.character).not_to be_nil
     end
   end
 end
