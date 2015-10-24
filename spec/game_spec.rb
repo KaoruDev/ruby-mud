@@ -1,13 +1,11 @@
 require_relative "./spec_helper"
 
 RSpec.describe Game do
-  before(:all) do
-    @game = Game.new
-  end
+  let(:game) { Game.new }
 
   it "will setup player and enemy" do
-    expect(@game.player).to be_a Player
-    expect(@game.enemy).to be_a Enemy
+    expect(game.player).to be_a Player
+    expect(game.enemy).to be_a Enemy
   end
 
   describe "#pick_characters" do
@@ -15,19 +13,36 @@ RSpec.describe Game do
       silence_questions
       stub_prompter(:output, 1)
 
-      @game.pick_characters
-      expect(@game.player.character).not_to be_nil
-      expect(@game.enemy.character).not_to be_nil
+      game.pick_characters
+      expect(game.player.character).not_to be_nil
+      expect(game.enemy.character).not_to be_nil
     end
 
     it "will generate attributes for both player and character" do
       silence_questions
       stub_prompter(:output, 1)
 
-      @game.pick_characters
+      game.pick_characters
 
-      expect(@game.player.hp).not_to be_nil
-      expect(@game.enemy.hp).not_to be_nil
+      expect(game.player.hp).not_to be_nil
+      expect(game.enemy.hp).not_to be_nil
+    end
+  end
+
+  describe "#begin_round" do
+    it "will have actors attack each other" do
+      silence_questions
+      stub_prompter(:output, 1)
+
+      game.pick_characters
+
+      player_hp = game.player.hp
+      enemy_hp = game.enemy.hp
+
+      game.begin_round
+
+      expect(game.player.hp).to be < (player_hp)
+      expect(game.enemy.hp).to be < (enemy_hp)
     end
   end
 end
