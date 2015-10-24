@@ -11,12 +11,23 @@ RSpec.describe Game do
   end
 
   describe "#pick_characters" do
-    it "will ask the player to choose a character" do
+    it "will ask the player to choose a character and enemy character" do
       silence_questions
       stub_prompter(:output, 1)
 
       @game.pick_characters
       expect(@game.player.character).not_to be_nil
+      expect(@game.enemy.character).not_to be_nil
+    end
+
+    it "will generate attributes for both player and character" do
+      silence_questions
+      stub_prompter(:output, 1)
+
+      @game.pick_characters
+
+      expect(@game.player.hp).not_to be_nil
+      expect(@game.enemy.hp).not_to be_nil
     end
   end
 end

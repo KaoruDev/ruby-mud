@@ -7,7 +7,9 @@ class Game
   end
 
   def pick_characters
-    characters.each(&:pick_character)
+    actors.each do |actor|
+      actor.pick_character.generate_attributes
+    end
   end
 
   def begin_round
@@ -17,7 +19,7 @@ class Game
 
   private
 
-  def characters
+  def actors
     [@player, @enemy]
   end
 
