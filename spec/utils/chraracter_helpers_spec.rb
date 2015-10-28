@@ -29,6 +29,11 @@ RSpec.describe Utils::CharacterHelpers do
   end
 
   describe "#take_damage" do
+    it "will return a fixnum" do
+      expect(character.take_damage(100)).to be_instance_of Fixnum
+      expect(character.take_damage(0)).to be_instance_of Fixnum
+    end
+
     it "will reduce the amount of damage" do
       prev_hp = character.hp
 

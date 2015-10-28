@@ -24,7 +24,9 @@ module Utils
     end
 
     def take_damage(amount)
+      damage_dealt = calculated_damage(amount)
       @hp = @hp - calculated_damage(amount)
+      damage_dealt
     end
 
     private

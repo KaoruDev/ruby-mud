@@ -15,7 +15,7 @@ module EnemyCharacters
         end
 
         def deal_damage
-          @target.take_damage(rand(DAMAGE_RANGE))
+          damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
         end
       end
 
