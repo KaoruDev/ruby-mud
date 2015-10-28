@@ -1,21 +1,16 @@
+require "lib/utils/actions/runner_methods"
+
 module PlayerCharacters
   class Elf
     module Actions
 
       class BasicAttack
+        include Utils::Actions::RunnerMethods
+
         DAMAGE_RANGE = (0..100)
 
         def self.description
           "Let your arrows fly at your foe!"
-        end
-
-        def self.run_against(target)
-          attack = self.new(target)
-          attack.deal_damage
-        end
-
-        def initialize(target)
-          @target = target
         end
 
         def deal_damage

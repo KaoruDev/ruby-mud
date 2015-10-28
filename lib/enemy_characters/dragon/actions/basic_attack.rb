@@ -1,19 +1,13 @@
+require "lib/utils/actions/runner_methods"
+
 module EnemyCharacters
   class Dragon
     module Actions
 
       class BasicAttack
+        include Utils::Actions::RunnerMethods
+
         DAMAGE_RANGE = (50..100)
-
-        def self.run_against(target, me)
-          attack = self.new(target, me)
-          attack.deal_damage
-        end
-
-        def initialize(target, me)
-          @target = target
-          @me = me
-        end
 
         def deal_damage
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
