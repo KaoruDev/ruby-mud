@@ -9,17 +9,17 @@ module PlayerCharacters
 
     describe "#attack" do
       let(:elf) { Elf.new }
-      let(:orc) { EnemyCharacters::Orc.new.generate_attributes }
+      let(:dummy) { EnemyDummy.new.generate_attributes }
 
       it "asks player to choose an attack" do
         expect(Utils::Prompter).to receive(:output).and_return(1)
         silence_questions
 
-        orc_hp = orc.hp
+        prev_hp = dummy.hp
 
-        elf.attack(orc)
+        elf.attack(dummy)
 
-        expect(orc.hp).to be < orc_hp
+        expect(dummy.hp).to be < prev_hp
       end
     end
 

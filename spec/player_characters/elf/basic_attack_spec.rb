@@ -5,15 +5,15 @@ module PlayerCharacters
     module Actions
 
       RSpec.describe BasicAttack do
-        let(:orc) { EnemyCharacters::Orc.new.generate_attributes }
+        let(:dummy) { EnemyDummy.new.generate_attributes }
 
         describe ".run_against" do
           it "will do damage to target" do
-            orc_hp = orc.hp
+            prev_hp = dummy.hp
 
-            BasicAttack.run_against(orc)
+            BasicAttack.run_against(dummy)
 
-            expect(orc.hp).to be < orc_hp
+            expect(dummy.hp).to be < prev_hp
           end
         end
       end
