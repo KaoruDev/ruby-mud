@@ -32,7 +32,9 @@ module Utils
       it "returns a hash with key == to class description and value == class" do
         expect(character).to receive(:my_actions).and_return([basic_attack_class])
 
+        # had to put in this hax cause description is defined in meta class not class itself
         result = character.available_actions
+
         expect(result[basic_attack_class.description]).to equal(basic_attack_class)
       end
     end

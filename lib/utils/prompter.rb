@@ -29,6 +29,10 @@ module Utils
     def self.output(text)
       Readline.readline(text)
     end
+
+    def self.display(text="")
+      puts text
+    end
   end
 end
 

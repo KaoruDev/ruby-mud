@@ -10,7 +10,7 @@ module EnemyCharacters
           it "will deal a range of damage to target" do
             prev_hp = dummy.hp
 
-            BasicAttack.run_against(dummy)
+            BasicAttack.run_against(dummy, dummy)
 
             damage_dealt = prev_hp - dummy.hp
 
