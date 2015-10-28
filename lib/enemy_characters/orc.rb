@@ -8,5 +8,9 @@ module EnemyCharacters
       hp: 30,
       mp: 5
     }
+
+    def fancy_name
+      "#{colors.red("Orc")} Warrior"
+    end
   end
 end

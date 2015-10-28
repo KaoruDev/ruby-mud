@@ -11,6 +11,7 @@ class Game
 
   def begin_round
     while both_actors_are_alive?
+      Utils::Prompter.display_stats(@enemy)
       @player.attack(@enemy)
       @enemy.attack(@player)
     end

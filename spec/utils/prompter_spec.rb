@@ -35,7 +35,7 @@ module Utils
       it "will display a character's stats" do
         dummy_prompt_match = match(Regexp.new("#{dummy.hp}.+hp"))
 
-        expect(Prompter).to receive(:output).with(dummy_prompt_match)
+        expect(Prompter).to receive(:display).with(dummy_prompt_match)
         Prompter.display_stats(dummy)
       end
     end
