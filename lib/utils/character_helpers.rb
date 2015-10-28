@@ -1,12 +1,14 @@
+require "lib/utils/color_alias"
+
 module Utils
   module CharacterHelpers
 
     def self.included(base)
-      base.extend ClassMethods
-
       base.send(:attr_reader, :hp, :mp)
 
       base.class_eval do
+        include ColorAlias
+
         def attribute_advantages
           self.class::ATTRIBUTE_ADVANTAGES
         end
@@ -37,16 +39,6 @@ module Utils
 
     def damage_calculator
       @damage_calculator ||= CalculateDamage.new
-    end
-
-    def colors
-      Utils::Colors
-    end
-
-    module ClassMethods
-      def colors
-        Utils::Colors
-      end
     end
 
   end

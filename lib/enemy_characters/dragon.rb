@@ -16,7 +16,7 @@ module EnemyCharacters
     end
 
     def attack(target)
-      available_actions(with_descriptions: false).values.sample.run_against(target, self)
+      available_actions(with_descriptions: false).values.sample.run_against(target: target, me: self)
     end
 
   end

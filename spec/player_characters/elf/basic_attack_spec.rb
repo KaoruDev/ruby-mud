@@ -11,7 +11,7 @@ module PlayerCharacters
           it "will do damage to target" do
             prev_hp = dummy.hp
 
-            BasicAttack.run_against(dummy)
+            BasicAttack.run_against(target: dummy)
 
             expect(dummy.hp).to be < prev_hp
           end
