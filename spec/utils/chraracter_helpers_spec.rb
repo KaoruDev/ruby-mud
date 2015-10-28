@@ -1,16 +1,20 @@
 require_relative "../spec_helper"
 
 RSpec.describe Utils::CharacterHelpers do
-  class TestCharacter
-    include Utils::CharacterHelpers
+  let(:test_class) do
+    test_class = Class.new do
+      include Utils::CharacterHelpers
+    end
 
-    ATTRIBUTE_ADVANTAGES = {
+    test_class::ATTRIBUTE_ADVANTAGES = {
       hp: 1,
       mp: 1
     }
+
+    test_class
   end
 
-  let(:character) { TestCharacter.new }
+  let(:character) { test_class.new }
 
   describe '#generate_attributes will generate attributes for the character' do
     it 'hp' do
