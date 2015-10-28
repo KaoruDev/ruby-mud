@@ -9,11 +9,10 @@ module PlayerCharacters
 
     describe "#attack" do
       let(:elf) { Elf.new }
-      let(:dummy) { EnemyDummy.new.generate_attributes }
+      let(:dummy) { DummyCharacter.new.generate_attributes }
 
       it "asks player to choose an attack" do
         expect(Utils::Prompter).to receive(:output).and_return(1)
-        silence_questions
 
         prev_hp = dummy.hp
 

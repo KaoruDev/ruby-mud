@@ -5,7 +5,7 @@ class PickCharacter
 
   def self.for_enemy
     possibilities = possible_enemy_characters
-    choice = rand(0..(possibilities.length-1))
+    choice = 0 #rand(0..(possibilities.length-1))
     possibilities[choice].new
   end
 

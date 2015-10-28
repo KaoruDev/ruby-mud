@@ -1,4 +1,4 @@
-class EnemyDummy
+class DummyCharacter
   include ::Utils::CharacterHelpers
 
   def fancy_name

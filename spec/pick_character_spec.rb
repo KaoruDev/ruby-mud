@@ -4,7 +4,6 @@ RSpec.describe PickCharacter do
   describe '.for_player' do
     it 'will allow user to pick from a list' do
       stub_prompter(:output, 1)
-      silence_questions
       expect(PickCharacter.for_player).to be_instance_of(PlayerCharacters::Elf)
     end
   end

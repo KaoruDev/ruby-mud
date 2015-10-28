@@ -5,7 +5,6 @@ RSpec.describe Game do
 
   describe "#pick_characters" do
     it "will ask the player to choose a character and enemy character" do
-      silence_questions
       stub_prompter(:output, 1)
 
       game.pick_characters
@@ -15,7 +14,6 @@ RSpec.describe Game do
     end
 
     it "will generate attributes for both player and character" do
-      silence_questions
       stub_prompter(:output, 1)
 
       game.pick_characters
@@ -27,7 +25,6 @@ RSpec.describe Game do
 
   describe "#begin_round" do
     it "will have actors attack each other" do
-      silence_questions
       stub_prompter(:output, 1)
 
       game.pick_characters
@@ -42,10 +39,9 @@ RSpec.describe Game do
     end
 
     it "will continue until an actor has < 0 hp" do
-      silence_questions
       stub_prompter(:output, 1)
 
-      allow(PickCharacter).to receive(:for_enemy) { EnemyDummy.new.generate_attributes }
+      allow(PickCharacter).to receive(:for_enemy) { DummyCharacter.new.generate_attributes }
 
       game.pick_characters
 

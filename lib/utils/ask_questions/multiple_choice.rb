@@ -13,7 +13,7 @@ module Utils
       end
 
       def run
-        display(@question)
+        puts(@question)
         display_options
         response = Prompter.run(player: @player)
         answer = find_answer(response)
@@ -30,9 +30,9 @@ module Utils
 
       def display_options
         @options.keys.each_with_index do |option_desc, idx|
-          display("#{idx + 1}) #{option_desc}")
+          puts("#{idx + 1}) #{option_desc}")
         end
-        display
+        puts ""
       end
 
       def find_answer(response)
@@ -46,10 +46,6 @@ module Utils
             value
           end
         end
-      end
-
-      def display(text="")
-        puts text
       end
     end
   end

@@ -30,12 +30,12 @@ module Utils
     end
 
     describe ".display_stats" do
-      let(:dummy) { EnemyDummy.new.generate_attributes }
+      let(:dummy) { DummyCharacter.new.generate_attributes }
 
       it "will display a character's stats" do
         dummy_prompt_match = match(Regexp.new("#{dummy.hp}.+hp"))
 
-        expect(Prompter).to receive(:display).with(dummy_prompt_match)
+        expect(Prompter).to receive(:puts).with(dummy_prompt_match)
         Prompter.display_stats(dummy)
       end
     end

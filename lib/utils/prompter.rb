@@ -12,7 +12,7 @@ module Utils
     end
 
     def self.display_stats(character)
-      display "\n#{character.fancy_name} has (#{Utils::Colors.red(character.hp)}hp) left."
+      puts "\n#{character.fancy_name} has (#{Utils::Colors.red(character.hp)}hp) left."
     end
 
     def self.didnt_get_that
@@ -29,11 +29,6 @@ module Utils
     def self.output(text)
       Readline.readline(text)
     end
-
-    def self.display(text)
-      puts text
-    end
-
   end
 end
 
