@@ -4,15 +4,15 @@ module Utils
   class Prompter
     def self.run(player: nil, custom_text: nil)
       return player_prompt(player) if player
-      output("#{custom_text}:> ")
+      output "#{custom_text}:> "
     end
 
     def self.player_prompt(player)
-      output("( #{Utils::Colors.green(player.hp)}HP #{Utils::Colors.yellow(player.mp)}MP ) :: > ")
+      output "( #{Utils::Colors.green(player.hp)}HP #{Utils::Colors.yellow(player.mp)}MP ) :: > "
     end
 
-    def self.enemy_stats(enemy)
-      puts "\n#{enemy.fancy_name} has (#{Utils::Colors.red(enemy.hp)}hp) left."
+    def self.display_stats(character)
+      output "\n#{character.fancy_name} has (#{Utils::Colors.red(character.hp)}hp) left."
     end
 
     def self.didnt_get_that
