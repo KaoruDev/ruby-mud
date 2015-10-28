@@ -24,8 +24,13 @@ module Utils
     end
 
     def take_damage(amount)
-      calculated_damage = damage_calculator.run(amount)
-      @hp =- calculated_damage
+      @hp = @hp - calculated_damage(amount)
+    end
+
+    private
+
+    def calculated_damage(amount)
+      damage_calculator.run(amount)
     end
 
     def damage_calculator

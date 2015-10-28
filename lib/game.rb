@@ -10,8 +10,14 @@ class Game
   end
 
   def begin_round
-    @player.attack(@enemy)
-    @enemy.attack(@player)
+    while both_actors_are_alive?
+      @player.attack(@enemy)
+      @enemy.attack(@player)
+    end
+  end
+
+  def both_actors_are_alive?
+    @player.hp >= 0 && @enemy.hp >= 0
   end
 
   private

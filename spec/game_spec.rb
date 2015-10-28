@@ -40,6 +40,19 @@ RSpec.describe Game do
       expect(game.player.hp).to be < (player_hp)
       expect(game.enemy.hp).to be < (enemy_hp)
     end
+
+    it "will continue until an actor has < 0 hp" do
+      silence_questions
+      stub_prompter(:output, 1)
+
+      allow(PickCharacter).to receive(:for_enemy) { EnemyDummy.new.generate_attributes }
+
+      game.pick_characters
+
+      game.begin_round
+
+      expect(game.enemy.hp <= 0 || game.player.hp <= 0).to be true
+    end
   end
 end
 
