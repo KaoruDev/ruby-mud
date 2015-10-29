@@ -1,18 +1,25 @@
+require "lib/utils/color_alias"
+
 module Utils
   class DamageGauge
-    def self.rate_damage(damage)
+    include Utils::ColorAlias
+
+    def self.rate(damage)
       verb = if damage < 51
                "bruises"
              elsif damage < 101
                "wounds"
              elsif damage < 201
                "gashes"
+             else
+               "does ---->> #{colors.randomize_letters("GODLIKE")} <<---- damage to"
              end
 
-      yield(verb)
+      yield(verb, fancy_display_for(damage))
     end
 
-    def self.fancy_damage(damage)
+    def self.fancy_display_for(damage)
+      "(#{color.red(damage)})"
     end
   end
 end

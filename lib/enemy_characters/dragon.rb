@@ -12,7 +12,7 @@ module EnemyCharacters
     }
 
     def fancy_name
-      "Huge #{colors.red("Dragon")}"
+      "Huge #{color.red("Dragon")}"
     end
 
     def attack(target)

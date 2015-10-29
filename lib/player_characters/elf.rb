@@ -14,11 +14,11 @@ module PlayerCharacters
     }
 
     def self.description
-      "#{colors.green("Elves")} are agile and skillful creatures, but lack resistance."
+      "#{color.green("Elves")} are agile and skillful creatures, but lack resistance."
     end
 
     def attack(character)
-      action_klass = Utils::AskQuestions.multiple_choice("#{colors.green("Gaia")} calls you to action!", self, available_actions)
+      action_klass = Utils::AskQuestions.multiple_choice("#{color.green("Gaia")} calls you to action!", self, available_actions)
       action_klass.run_against(target: character)
     end
 

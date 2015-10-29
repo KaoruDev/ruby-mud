@@ -5,12 +5,12 @@ module Utils
       base.extend ClassMethods
     end
 
-    def colors
+    def color
       Utils::Colors
     end
 
     module ClassMethods
-      def colors
+      def color
         Utils::Colors
       end
     end

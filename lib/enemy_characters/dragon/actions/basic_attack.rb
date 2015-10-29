@@ -1,4 +1,5 @@
 require "lib/utils/actions/runner_methods"
+require "lib/utils/damage_gauge"
 
 module EnemyCharacters
   class Dragon
@@ -11,7 +12,11 @@ module EnemyCharacters
 
         def deal_damage
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
-          Utils::Prompter.display "#{@me.fancy_name} pulls back and deals super damage! (#{damage_dealt})"
+
+          Utils::DamageGauge.rate(damage_dealt) do |verb, amount|
+            Utils::Prompter.display "#{@me.fancy_name}'s CLAW swipe #{verb} you! #{amount}"
+          end
+
           damage_dealt
         end
       end

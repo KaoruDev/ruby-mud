@@ -18,9 +18,8 @@ module Utils
 
     class << self
       def randomize_letters(word)
-        colors = MAP.keys
         word.chars.map do |letter|
-          self.public_send(colors.sample, letter)
+          self.public_send(color.sample, letter)
         end.join
       end
 

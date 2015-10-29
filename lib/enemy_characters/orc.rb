@@ -10,7 +10,7 @@ module EnemyCharacters
     }
 
     def fancy_name
-      "#{colors.red("Orc")} Warrior"
+      "#{color.red("Orc")} Warrior"
     end
   end
 end
