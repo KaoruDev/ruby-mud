@@ -32,6 +32,10 @@ module Utils
       damage_dealt
     end
 
+    def attack_range
+      (@min_attack..@max_attack)
+    end
+
     private
 
     def calculated_damage(amount)

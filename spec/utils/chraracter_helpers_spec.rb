@@ -71,5 +71,11 @@ RSpec.describe Utils::CharacterHelpers do
     end
   end
 
+  describe "attack_range" do
+    it "returns a range from min_attack to max_attack" do
+      expect(character.attack_range).to eq((2..4))
+    end
+  end
+
 end
 
