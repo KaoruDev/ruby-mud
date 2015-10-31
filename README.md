@@ -1,5 +1,4 @@
 # Ruby-Mud
------
 
 **TLDR**: Me practing BDD!
 
