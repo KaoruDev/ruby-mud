@@ -15,7 +15,9 @@ module Utils
       module ClassMethods
         def run_against(target: nil, me: nil, action_multiplier: (1..1))
           action = self.new(target, me, action_multiplier)
-          action.execute
+          rand(action_multiplier).times do
+            action.execute
+          end
         end
       end
 
