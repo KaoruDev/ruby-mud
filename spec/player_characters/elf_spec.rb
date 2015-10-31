@@ -8,7 +8,7 @@ module PlayerCharacters
     end
 
     describe "#attack" do
-      let(:elf) { Elf.new }
+      let(:elf) { Elf.new.generate_attributes }
       let(:dummy) { DummyCharacter.new.generate_attributes }
 
       it "asks player to choose an attack" do

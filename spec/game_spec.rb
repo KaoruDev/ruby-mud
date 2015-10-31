@@ -25,7 +25,8 @@ RSpec.describe Game do
 
   describe "#begin_round" do
     it "will have actors attack each other" do
-      stub_prompter(:output, 1)
+      allow(PickCharacter).to receive(:for_enemy) { DummyCharacter.new.generate_attributes }
+      allow(PickCharacter).to receive(:for_player) { DummyCharacter.new.generate_attributes }
 
       game.pick_characters
 

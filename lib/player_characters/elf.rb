@@ -20,7 +20,7 @@ module PlayerCharacters
     def attack(character)
       action_klass = Utils::AskQuestions.multiple_choice(attack_question, self, available_actions)
       Utils::Prompter.display("\n")
-      action_klass.run_against(target: character, me: self)
+      action_klass.run_against(target: character, me: self, action_multiplier: attack_range)
     end
 
     private

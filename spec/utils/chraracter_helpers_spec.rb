@@ -77,5 +77,16 @@ RSpec.describe Utils::CharacterHelpers do
     end
   end
 
+  describe "dead?" do
+    it "returns a true if hp is =< 0" do
+      allow(character).to receive(:hp).and_return(0)
+      expect(character.dead?).to be true
+    end
+
+    it "returns a false if hp is > 0" do
+      expect(character.dead?).to be false
+    end
+  end
+
 end
 

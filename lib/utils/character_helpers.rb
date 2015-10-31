@@ -28,12 +28,16 @@ module Utils
 
     def take_damage(amount)
       damage_dealt = calculated_damage(amount)
-      @hp = @hp - calculated_damage(amount)
+      @hp = @hp - damage_dealt
       damage_dealt
     end
 
     def attack_range
       (@min_attack..@max_attack)
+    end
+
+    def dead?
+      hp <= 0
     end
 
     private

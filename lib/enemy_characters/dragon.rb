@@ -8,7 +8,9 @@ module EnemyCharacters
 
     ATTRIBUTE_ADVANTAGES = {
       hp: 25,
-      mp: 10
+      mp: 10,
+      min_attack: 2,
+      max_attack: 4,
     }
 
     def fancy_name
@@ -16,7 +18,7 @@ module EnemyCharacters
     end
 
     def attack(target)
-      available_actions(with_descriptions: false).values.sample.run_against(target: target, me: self)
+      available_actions(with_descriptions: false).values.sample.run_against(target: target, me: self, action_multiplier: attack_range)
     end
 
   end
