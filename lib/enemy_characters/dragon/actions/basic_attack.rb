@@ -1,4 +1,5 @@
 require "lib/utils/actions/runner_methods"
+require "lib/utils/actions/mana_cost_helpers"
 require "lib/utils/damage_gauge"
 
 module EnemyCharacters
@@ -7,6 +8,7 @@ module EnemyCharacters
 
       class BasicAttack
         include Utils::Actions::RunnerMethods
+        include Utils::Actions::ManaCostHelpers
 
         DAMAGE_RANGE = (25..120)
 

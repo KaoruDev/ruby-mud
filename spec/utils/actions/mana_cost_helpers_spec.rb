@@ -2,10 +2,10 @@ require_relative "../../spec_helper"
 
 module Utils
   module Actions
-    RSpec.describe ManaCostHelper do
+    RSpec.describe ManaCostHelpers do
       let (:basic_spell_class) {
         Class.new do
-          include ManaCostHelper
+          include ManaCostHelpers
         end
       }
 

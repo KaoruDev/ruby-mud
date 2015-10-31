@@ -1,4 +1,6 @@
+require "lib/utils/damage_gauge"
 require "lib/utils/actions/runner_methods"
+require "lib/utils/actions/mana_cost_helpers"
 
 module PlayerCharacters
   class Elf
@@ -6,6 +8,7 @@ module PlayerCharacters
 
       class BasicAttack
         include Utils::Actions::RunnerMethods
+        include Utils::Actions::ManaCostHelpers
 
         DAMAGE_RANGE = (20..60)
 

@@ -1,6 +1,6 @@
 module Utils
   module Actions
-    module ManaCostHelper
+    module ManaCostHelpers
       def self.included(base)
         base.extend(ClassMethods)
       end
