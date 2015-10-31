@@ -17,6 +17,8 @@ module Utils
     def generate_attributes
       @hp = attribute_advantages[:hp] * rand(100..150)
       @mp = attribute_advantages[:mp] * rand(50..100)
+      @min_attack = attribute_advantages[:min_attack] || 1
+      @max_attack = attribute_advantages[:max_attack] || 2
       self
     end
 

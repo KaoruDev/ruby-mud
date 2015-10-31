@@ -7,7 +7,7 @@ module PlayerCharacters
       class BasicAttack
         include Utils::Actions::RunnerMethods
 
-        DAMAGE_RANGE = (0..100)
+        DAMAGE_RANGE = (25..50)
 
         def self.description
           "Let your arrows fly at your foe!"
