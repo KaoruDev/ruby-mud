@@ -11,11 +11,11 @@ module Utils
     end
 
     def self.player_prompt(player)
-      output "( #{color.green(player.hp)}HP #{color.yellow(player.mp)}MP ) :: > "
+      output "( #{color.green(player.hp)}HP #{color.yellow(player.mp)}MP ) :: >"
     end
 
     def self.display_stats(character)
-      puts "\n#{character.fancy_name} has (#{color.red(character.hp)}hp) left."
+      puts "\n#{character.fancy_name} has (#{color.red(character.hp)}hp) left.\n\n"
     end
 
     def self.didnt_get_that

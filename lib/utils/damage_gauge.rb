@@ -12,7 +12,7 @@ module Utils
              elsif damage < 201
                "gashes"
              else
-               "does ---->> #{colors.randomize_letters("GODLIKE")} <<---- damage to"
+               "does ---->> #{color.randomize_letters("GODLIKE")} <<---- damage to"
              end
 
       yield(verb, fancy_display_for(damage))

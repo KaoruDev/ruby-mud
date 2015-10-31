@@ -16,10 +16,12 @@ module Utils
       INSTANCE_METH
     end
 
+    AVAILABLE_COLORS = MAP.keys
+
     class << self
       def randomize_letters(word)
         word.chars.map do |letter|
-          self.public_send(color.sample, letter)
+          self.public_send(AVAILABLE_COLORS.sample, letter)
         end.join
       end
 

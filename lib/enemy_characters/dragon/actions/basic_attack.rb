@@ -8,7 +8,7 @@ module EnemyCharacters
       class BasicAttack
         include Utils::Actions::RunnerMethods
 
-        DAMAGE_RANGE = (50..100)
+        DAMAGE_RANGE = (25..120)
 
         def deal_damage
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))

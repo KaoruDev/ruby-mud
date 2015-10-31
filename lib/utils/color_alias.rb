@@ -1,3 +1,5 @@
+require "lib/utils/colors"
+
 module Utils
   module ColorAlias
 

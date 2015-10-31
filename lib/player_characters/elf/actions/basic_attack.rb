@@ -14,7 +14,13 @@ module PlayerCharacters
         end
 
         def deal_damage
-          @target.take_damage(rand(damage_range))
+          damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
+
+          Utils::DamageGauge.rate(damage_dealt) do |verb, amount|
+            Utils::Prompter.display "You let loose an arrow which #{verb} the #{@target.fancy_name}! #{amount}"
+          end
+
+          damage_dealt
         end
 
         def damage_range

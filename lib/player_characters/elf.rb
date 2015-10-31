@@ -18,9 +18,21 @@ module PlayerCharacters
     end
 
     def attack(character)
-      action_klass = Utils::AskQuestions.multiple_choice("#{color.green("Gaia")} calls you to action!", self, available_actions)
+      action_klass = Utils::AskQuestions.multiple_choice(attack_question, self, available_actions)
+      Utils::Prompter.display("\n")
       action_klass.run_against(target: character)
     end
+
+    private
+
+    def attack_question
+<<-MSG
+==========================================
+
+#{color.green("Gaia")} calls you to action!
+MSG
+    end
+
 
   end
 end
