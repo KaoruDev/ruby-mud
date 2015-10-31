@@ -18,7 +18,7 @@ class Game
   end
 
   def both_actors_are_alive?
-    @player.hp >= 0 && @enemy.hp >= 0
+    @player.hp > 0 && @enemy.hp > 0
   end
 
   private

@@ -7,7 +7,7 @@ module EnemyCharacters
     include Utils::ActionLoader
 
     ATTRIBUTE_ADVANTAGES = {
-      hp: 20,
+      hp: 25,
       mp: 10
     }
 

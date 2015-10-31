@@ -7,7 +7,7 @@ module PlayerCharacters
     include ::Utils::ActionLoader
 
     ATTRIBUTE_ADVANTAGES = {
-      :hp => 30,
+      :hp => 18,
       :mp => 10,
       :agility => 6,
       :dodge => 3
