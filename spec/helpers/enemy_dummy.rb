@@ -1,5 +1,6 @@
 class DummyCharacter
-  include ::Utils::CharacterHelpers
+  include Utils::CharacterHelpers
+  include Utils::ActionLoader
 
   def fancy_name
     "Dummy!"
