@@ -40,6 +40,10 @@ module Utils
       hp <= 0
     end
 
+    def decrease_mana_by(amount)
+      @mp = @mp - amount
+    end
+
     private
 
     def calculated_damage(amount)

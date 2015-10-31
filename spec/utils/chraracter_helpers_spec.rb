@@ -88,5 +88,15 @@ RSpec.describe Utils::CharacterHelpers do
     end
   end
 
+  describe "#decrease_mana_by" do
+    it "descreases mp by amount" do
+      prev_mana = character.mp
+
+      character.decrease_mana_by(100)
+
+      expect(character.mp + 100).to eq(prev_mana)
+    end
+  end
+
 end
 

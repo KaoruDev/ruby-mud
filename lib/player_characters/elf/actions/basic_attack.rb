@@ -26,10 +26,6 @@ module PlayerCharacters
           damage_dealt
         end
 
-        def damage_range
-          DAMAGE_RANGE
-        end
-
       end
 
     end
