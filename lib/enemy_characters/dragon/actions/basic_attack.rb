@@ -10,7 +10,7 @@ module EnemyCharacters
 
         DAMAGE_RANGE = (25..120)
 
-        def deal_damage
+        def execute
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
 
           Utils::DamageGauge.rate(damage_dealt) do |verb, amount|

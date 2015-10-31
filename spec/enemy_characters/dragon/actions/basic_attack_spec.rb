@@ -16,6 +16,15 @@ module EnemyCharacters
 
             expect(BasicAttack::DAMAGE_RANGE).to cover(damage_dealt)
           end
+
+          context "will deal damage within given a range of" do
+            it "range (2..4)" do
+              expect(dummy).to receive(:take_damage).at_least(:twice).and_call_original
+              expect(dummy).to receive(:take_damage).at_most(4).and_call_original
+
+              BasicAttack.run_against(target: dummy, me: dummy, action_multiplier: (1..3))
+            end
+          end
         end
       end
     end

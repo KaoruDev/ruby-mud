@@ -13,7 +13,7 @@ module PlayerCharacters
           "Let your arrows fly at your foe!"
         end
 
-        def deal_damage
+        def execute
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
 
           Utils::DamageGauge.rate(damage_dealt) do |verb, amount|

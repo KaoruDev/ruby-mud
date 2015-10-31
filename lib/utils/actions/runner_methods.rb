@@ -2,8 +2,9 @@ module Utils
   module Actions
     module RunnerMethods
 
-      def initialize(target, me)
+      def initialize(target, me, action_multiplier)
         @target = target
+        @action_multiplier = action_multiplier
         @me = me
       end
 
@@ -12,9 +13,9 @@ module Utils
       end
 
       module ClassMethods
-        def run_against(target: nil, me: nil)
-          attack = self.new(target, me)
-          attack.deal_damage
+        def run_against(target: nil, me: nil, action_multiplier: (1..1))
+          action = self.new(target, me, action_multiplier)
+          action.execute
         end
       end
 
