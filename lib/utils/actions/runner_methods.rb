@@ -15,9 +15,14 @@ module Utils
       module ClassMethods
         def run_against(target: nil, me: nil, action_multiplier: (1..1))
           action = self.new(target, me, action_multiplier)
-          rand(action_multiplier).times do
+
+          rand(default_range || action_multiplier).times do
             action.execute
           end
+        end
+
+        def default_range
+          nil
         end
       end
 

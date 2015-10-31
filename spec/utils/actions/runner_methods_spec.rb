@@ -24,6 +24,25 @@ module Utils
             action_klass.run_against(action_multiplier: (2..3))
           end
         end
+
+        context "when class has default_range defined" do
+          let(:action_klass_with_default_range) {
+            Class.new do
+              include RunnerMethods
+
+              def self.default_range
+                (1..1)
+              end
+            end
+          }
+
+          it "will choose the default_range rather than what's passsed" do
+            expect_any_instance_of(action_klass_with_default_range).to receive(:execute).at_most(1)
+
+            action_klass_with_default_range.run_against(action_multiplier: (2..3))
+          end
+        end
+
       end
     end
   end
