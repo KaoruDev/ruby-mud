@@ -8,7 +8,9 @@ RSpec.describe Utils::CharacterHelpers do
 
     test_class::ATTRIBUTE_ADVANTAGES = {
       hp: 1,
-      mp: 1
+      mp: 1,
+      min_attack: 2,
+      max_attack: 4,
     }
 
     test_class
@@ -22,9 +24,33 @@ RSpec.describe Utils::CharacterHelpers do
       expect(character.hp).to be_instance_of Fixnum
     end
 
+    it 'min_attack' do
+      min_attack = character.instance_variable_get('@min_attack')
+      expect(min_attack).to eq(2)
+    end
+
+    it 'max_attack' do
+      max_attack = character.instance_variable_get('@max_attack')
+      expect(max_attack).to eq(4)
+    end
+
     it 'mp' do
       expect(character.mp).not_to be_nil
       expect(character.mp).to be_instance_of Fixnum
+    end
+
+    context 'will default to' do
+      it 'min_attack of 1' do
+        allow_any_instance_of(test_class).to receive(:attribute_advantages).and_return({ hp: 1, mp: 1})
+        min_attack = character.instance_variable_get('@min_attack')
+        expect(min_attack).to eq(1)
+      end
+
+      it 'max_attack of 2' do
+        allow_any_instance_of(test_class).to receive(:attribute_advantages).and_return({ hp: 1, mp: 1})
+        max_attack = character.instance_variable_get('@max_attack')
+        expect(max_attack).to eq(2)
+      end
     end
   end
 

@@ -9,8 +9,8 @@ module PlayerCharacters
     ATTRIBUTE_ADVANTAGES = {
       :hp => 18,
       :mp => 10,
-      :agility => 6,
-      :dodge => 3
+      :min_attack => 3,
+      :max_attack => 5
     }
 
     def self.description
@@ -20,7 +20,7 @@ module PlayerCharacters
     def attack(character)
       action_klass = Utils::AskQuestions.multiple_choice(attack_question, self, available_actions)
       Utils::Prompter.display("\n")
-      action_klass.run_against(target: character)
+      action_klass.run_against(target: character, me: self)
     end
 
     private

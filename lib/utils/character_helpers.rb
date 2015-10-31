@@ -4,10 +4,9 @@ module Utils
   module CharacterHelpers
 
     def self.included(base)
-      base.send(:attr_reader, :hp, :mp)
-
       base.class_eval do
         include ColorAlias
+        attr_reader :hp, :mp
 
         def attribute_advantages
           self.class::ATTRIBUTE_ADVANTAGES
