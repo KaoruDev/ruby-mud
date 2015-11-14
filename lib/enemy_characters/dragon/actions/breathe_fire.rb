@@ -9,7 +9,7 @@ module EnemyCharacters
         include Utils::Actions::RunnerMethods
         include Utils::ColorAlias
 
-        DAMAGE_RANGE = (100..1000)
+        DAMAGE_RANGE = (100..500)
 
         def self.cost
           100

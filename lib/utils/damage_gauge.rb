@@ -9,8 +9,18 @@ module Utils
                "bruises"
              elsif damage < 101
                "wounds"
-             elsif damage < 201
+             elsif damage < 126
                "gashes"
+             elsif damage < 151
+               "gashes"
+             elsif damage < 201
+               "#{color.red("devastating")} damage to"
+             elsif damage < 251
+               "deals #{color.red("MULTILATING")} damage to"
+             elsif damage < 301
+               ">>#{color.bold("H")}#{color.yellow("AVO")}#{color.bold("C")}<< damage to"
+             elsif damage < 351
+               ">>#{color.bold("CAT")}#{color.red("ASTRO")}#{color.bold("PHIC")}<< damage to"
              else
                "does ---->> #{color.randomize_letters("GODLIKE")} <<---- damage to"
              end
