@@ -21,6 +21,8 @@ module Utils
                ">>#{color.bold("H")}#{color.yellow("AVO")}#{color.bold("C")}<< damage to"
              elsif damage < 351
                ">>#{color.bold("CAT")}#{color.red("ASTRO")}#{color.bold("PHIC")}<< damage to"
+             elsif damage < 500
+               "<< #{color.red("DECAP")}#{color.yellow("ITA")}#{color.red("TING")} >> damage to"
              else
                "does ---->> #{color.randomize_letters("GODLIKE")} <<---- damage to"
              end

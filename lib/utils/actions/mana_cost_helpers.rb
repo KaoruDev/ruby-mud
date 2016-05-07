@@ -7,7 +7,7 @@ module Utils
 
       module ClassMethods
         def cost
-          0
+          self.const_defined?(:COST) ? self.const_get(:COST) : 0
         end
       end
     end
