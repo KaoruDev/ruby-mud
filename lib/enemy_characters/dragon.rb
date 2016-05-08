@@ -18,7 +18,10 @@ module EnemyCharacters
     end
 
     def attack(target)
-      available_actions(with_descriptions: false).values.sample.run_against(target: target, me: self, action_multiplier: attack_range)
+      available_actions(with_descriptions: false)
+        .values
+        .sample
+        .run_against(target: target, me: self, action_multiplier: attack_range)
     end
 
   end

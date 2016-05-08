@@ -89,7 +89,7 @@ RSpec.describe Utils::CharacterHelpers do
   end
 
   describe "#decrease_mana_by" do
-    it "descreases mp by amount" do
+    it "decreases mp by amount" do
       prev_mana = character.mp
 
       character.decrease_mana_by(100)
@@ -98,5 +98,28 @@ RSpec.describe Utils::CharacterHelpers do
     end
   end
 
+  context "effects" do
+    let(:effect) { PlayerCharacters::Elf::Actions::TreantSalve.new(nil, character, nil) }
+
+    describe "#add_effect" do
+      it "adds an effect" do
+        expect { character.add_effect(effect) }.to(
+          change { character.effects.count }.from(0).to(1)
+        )
+      end
+    end
+
+    describe "#handle_effects" do
+      it "plays out effects" do
+        character.add_effect(effect)
+
+        PlayerCharacters::Elf::Actions::TreantSalve.rounds.times do
+          character.handle_effects
+        end
+
+        expect(character.effects).to be_empty
+      end
+    end
+  end
 end
 

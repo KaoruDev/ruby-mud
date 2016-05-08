@@ -4,13 +4,16 @@ class Game
   def pick_characters
     @player = PickCharacter.for_player.generate_attributes
     @enemy = PickCharacter.for_enemy.generate_attributes
+    @characters = [@player, @enemy]
   end
 
   def begin_round
     while both_actors_are_alive?
-      Utils::Prompter.display_stats(@enemy)
       @player.attack(@enemy)
       @enemy.attack(@player)
+
+      @characters.each(&:handle_effects)
+      Utils::Prompter.display_stats(@enemy)
     end
   end
 

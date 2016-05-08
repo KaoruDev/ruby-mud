@@ -14,7 +14,7 @@ module PlayerCharacters
         COST = 150
 
         def self.description
-          "You close your eyes and allow Gaia to guide your arrow!"
+          "Focus your strength on one shot ( #{cost}mp )"
         end
 
         def self.default_range
@@ -25,7 +25,7 @@ module PlayerCharacters
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
 
           Utils::DamageGauge.rate(damage_dealt) do |verb, amount|
-            Utils::Prompter.display "You let loose an arrow which #{verb} the #{@target.fancy_name}! #{amount}"
+            Utils::Prompter.display "Gaia guides your arrow to deal #{verb} the #{@target.fancy_name}! #{amount}"
           end
 
           @me.decrease_mana_by(COST)
