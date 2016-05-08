@@ -17,18 +17,12 @@ module PlayerCharacters
           "Focus your strength on one shot ( #{cost}mp )"
         end
 
-        def self.default_range
-          1..1
-        end
-
         def execute
           damage_dealt = @target.take_damage(rand(DAMAGE_RANGE))
 
           Utils::DamageGauge.rate(damage_dealt) do |verb, amount|
             Utils::Prompter.display "Gaia guides your arrow to deal #{verb} the #{@target.fancy_name}! #{amount}"
           end
-
-          @me.decrease_mana_by(COST)
 
           damage_dealt
         end

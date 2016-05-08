@@ -19,6 +19,8 @@ module Utils
           rand(default_range || action_multiplier).times do
             action.execute
           end
+
+          me.decrease_mana_by(cost) if me
         end
 
         def default_range
